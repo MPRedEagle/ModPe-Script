@@ -1,4 +1,10 @@
 ModPe-Script
 ============
 
-touch README.md git init git add README.md git commit -m "first commit" git remote add origin https://github.com/MPRedEagle/ModPE-Scripts.git git push -u origin master
+Owner :
+DevilLordSR-MCPE > facebook.com/ville.a.mania
+
+Mod Pe Developer Teams.
+
+This Repo is not for requesting mods.
+If you wanna request,ease chat me on my facebook.
