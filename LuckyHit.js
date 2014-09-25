@@ -1,7 +1,7 @@
 /*
  
   __ModPe Script__
-  Ender Pearl
+  Lucky Hit
   RedEagle Team
   1.0.0
 
