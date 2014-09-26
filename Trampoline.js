@@ -3,7 +3,17 @@
   __ModPe Script__
   Trampoline Mod
   RedEagle Team
-  1.0.0
+  1.0.1
+
+*/
+
+/*
+
+ *- Version 1.0.1 -*
+	Command Change(32)
+
+ *- Version 1.0.0 -*
+ 	Initial Release
 
 */
 
@@ -14,18 +24,18 @@ Block.defineBlock(253,"Random Trampoline","destroy",5,false,0);
 var pet = 0;
 
 function newLevel() {
-	chat("/b");
+	chat("/trampoline to get trampoline block");
 }
 
 function procCmd(cmd) {
 	var c = cmd.split(" ");
-	if(c[0] == "b") {
+	if(c[0] == "trampoline") {
 		chat("Block Gived !");
 		addItemInventory(250,1,0);
 		addItemInventory(251,1,0);
 		addItemInventory(252,1,0);
 		addItemInventory(253,1,0);
-		chat("/ran <high> to set random block high..");
+		chat("/ran <high> to set Random Trampoline jump high..");
 		setPlayerHealth(9999);
 		chat("Health Setted To 9999");
 	}
