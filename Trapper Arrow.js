@@ -7,6 +7,13 @@
 
 */
 
+/*
+
+ *- Version 1.0.0 -*
+ Initial Release
+
+*/
+
 function newLevel() {
 	clientMessage(ChatColor.RED + "[RE]" + ChatColor.GREEN + " Trapper Arrow By : Devillord");
 	clientMessage(ChatColor.RED + "[RE]" + ChatColor.GREEN + " Shoot Arrow To Mobs To Trap It !"); // bad message. any good message ?
