@@ -7,6 +7,13 @@
 
 */
 
+/*
+
+ *- Version 1.0.0 -*
+ 	Initial Release
+
+*/
+
 var nradius = 5;
 var id = 0;
 var ia = 1;
