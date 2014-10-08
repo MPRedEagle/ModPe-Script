@@ -7,6 +7,13 @@
 
 */
 
+/*
+
+ *- Version 1.0.0 -*
+ 	Initial Release
+
+*/
+
 function newLevel(){
 	addItemInventory(332,16);
 	clientMessage(ChatColor.RED + "[RE]" + ChatColor.GREEN +  " Snowball Added");
