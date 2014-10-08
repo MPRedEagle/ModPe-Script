@@ -7,6 +7,13 @@
 
 */
 
+/*
+
+ *- Version 1.0.0 -*
+ Initial Release
+
+*/
+
 var mount;
 
 function useItem(x,y,z,itemId,blockId) {
