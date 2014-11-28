@@ -9,6 +9,10 @@
 
 /*
 
+ -* Version 1.0.1 *-
+ 	Bug Fixed
+ 	Updated Saving Method
+
  -* Version 1.0.0 *-
  	Initial Release
 
@@ -17,6 +21,8 @@
 var point = 0;
 var gamble = 0;
 var chet = 0;
+var path = android.os.Environment.getExternalStorageDirectory().getPath() + "/games/com.mojang/minecraftWorlds/"+Level.getWorldDir() + "/";
+
 
 function newLevel() {
 	chat("How to work?");
@@ -24,21 +30,48 @@ function newLevel() {
 	chat("Die ? lost 100 point !");
 	chat("Killed Mob ? plus 100 point !");
 	chat("/dets to see details");
-	point = ModPE.readData("p");
-	gamble = ModPE.readData("g");
-	chet = ModPE.readData("c");
+	Load();
 }
 
+function Save() {
+	java.io.File(path).mkdirs();
+	var newFile = new java.io.File(path,"ruinpgp.txt");
+	newFile.createNewFile();
+	var outWrite = new java.io.OutputStreamWriter(new java.io.FileOutputStream(newFile));
+	outWrite.append(point.toString());
+	outWrite.append("," + gamble.toString());  //We need to separate all variables. We split them with ","
+	outWrite.append("," + chet.toString());
+	outWrite.close();
+}
+
+function Load(){
+	if(!java.io.File(path + "ruinpgp.txt").exists()) return;
+	var file = new java.io.File(path + "ruinpgp.txt");
+	var fos = new java.io.FileInputStream(file);
+	var str = new java.lang.StringBuilder();
+	var ch;
+	while((ch=fos.read())!=-1) str.append(java.lang.Character(ch));
+	point=parseInt(str.toString().split(",")[0]);  //Here we split text by ","
+	gamble=parseInt(str.toString().split(",")[1]);
+	chet=parseInt(str.toString().split(",")[2]);
+	fos.close();
+}
+
+
+
 function deathHook(murderer,victim) {
-	if(murderer == getPlayerEnt()) {
-		chat("+100 Point !");
-		point = point + 100;
-		clientMessage(ChatColor.GREEN + point);
-	}
-	else
-	if(victim == getPlayerEnt()) {
-		point = point - 100;
-		clientMessage(ChatColor.GREEN + point);
+	if(Level.getGameMode() == 0) {
+		if(murderer == getPlayerEnt()) {
+			point = point + 100;
+			chat("+100 !");
+			clientMessage(ChatColor.GREEN + point);
+		}
+		else
+		if(victim == getPlayerEnt()) {
+			point = point - 100;
+			chat("-100 !");
+			clientMessage(ChatColor.GREEN + point);
+		}
 	}
 }
 
@@ -171,9 +204,7 @@ function chat(msg) {
 }
 
 function leaveGame() {
-	ModPE.saveData("p",point);
-	ModPE.saveData("c",chet);
-	ModPE.saveData("g",gamble);
+	Save();
 }
 
 /*
